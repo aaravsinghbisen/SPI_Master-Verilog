@@ -75,26 +75,28 @@ For each 8-bit transaction, the master generates eight rising edges and eight fa
 
 ## Clock generation
 
-The system clock frequency is 100 MHz, corresponding to a 10 ns clock period.
+The system clock frequency is 100 MHz, corresponding to a clock period of 10 ns.
 
-The SCLK output toggles after every 50 system-clock cycles.
+The SPI clock (SCLK) toggles after every 50 system-clock cycles. Since a complete SCLK period consists of two toggles, the SPI clock frequency is calculated as:
 
-\[
-f_{\mathrm{SCLK}}=\frac{f_{\mathrm{clk}}}{2D}
-\]
+[
+f_{\text{SCLK}}=\frac{f_{\text{clk}}}{2D}
+]
 
 Where:
-- \(f_{\mathrm{clk}} = 100\,\text{MHz}\)
-- \(D = 50\)
+
+(f_{\text{clk}} = 100,\text{MHz}) is the system clock frequency.
+
+(D = 50) is the clock divider value.
 
 Therefore,
 
-\[
-f_{\mathrm{SCLK}}=\frac{100\,\text{MHz}}{2\times50}
-=1\,\text{MHz}
-\]
+[
+f_{\text{SCLK}}=\frac{100,\text{MHz}}{2\times50}
+=1,\text{MHz}
+]
 
-The resulting SCLK has a nominal period of 1 µs and a half-period of 500 ns.
+This gives an SCLK period of 1 µs and a nominal half-period of 500 ns.
 
 ## Verification
 
