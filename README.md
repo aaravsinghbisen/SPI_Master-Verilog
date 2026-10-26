@@ -79,25 +79,20 @@ The system clock frequency is 100 MHz, corresponding to a clock period of 10 ns.
 
 The SPI clock (SCLK) toggles after every 50 system-clock cycles. Since a complete SCLK period consists of two toggles, the SPI clock frequency is calculated as:
 
-[
-f_{\text{SCLK}}=\frac{f_{\text{clk}}}{2D}
-]
+f_SCLK = f_clk / (2 × D)
 
 Where:
 
-(f_{\text{clk}} = 100,\text{MHz}) is the system clock frequency.
+f_clk = 100 MHz is the system clock frequency.
 
-(D = 50) is the clock divider value.
+D = 50 is the clock divider value.
 
-Therefore,
+Therefore:
 
-[
-f_{\text{SCLK}}=\frac{100,\text{MHz}}{2\times50}
-=1,\text{MHz}
-]
+f_SCLK = 100 MHz / (2 × 50)
+       = 1 MHz
 
 This gives an SCLK period of 1 µs and a nominal half-period of 500 ns.
-
 ## Verification
 
 The design was simulated using Icarus Verilog with a self-checking testbench. A simulated SPI slave provides the expected response on MISO.
